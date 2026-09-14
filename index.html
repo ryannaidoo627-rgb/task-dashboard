@@ -1,35 +1,190 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using @vitejs/plugin-react"
-    />
-    <link rel="apple-touch-icon" href="/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="/manifest.json" />
-    <title>Task Dashboard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0e13" />
+    <title>Daily Laws Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">DL</div>
+          <div>
+            <strong>Daily Laws</strong>
+            <span>STUDIO</span>
+          </div>
+        </div>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        <nav class="primary-nav" aria-label="Main navigation">
+          <p class="nav-label">WORKSPACE</p>
+          <a class="nav-item active" data-view="studio" href="#studio"><span class="nav-icon">✦</span> Studio</a>
+          <a class="nav-item" data-view="library" href="#library"><span class="nav-icon">▤</span> Law library <span class="nav-count">48</span></a>
+          <a class="nav-item" data-view="drafts" href="#drafts"><span class="nav-icon">◩</span> My drafts <span class="nav-count">6</span></a>
+          <p class="nav-label nav-space">TOOLS</p>
+          <a class="nav-item" data-view="calendar" href="#calendar"><span class="nav-icon">◷</span> Content calendar</a>
+          <a class="nav-item" data-view="analytics" href="#analytics"><span class="nav-icon">↗</span> Analytics</a>
+        </nav>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+        <div class="sidebar-bottom">
+          <div class="usage-card">
+            <div class="usage-head"><span>Monthly credits</span><strong>72%</strong></div>
+            <div class="progress"><i></i></div>
+            <p>72 of 100 generations used</p>
+            <button class="upgrade-btn">Upgrade plan <span>→</span></button>
+          </div>
+          <div class="profile">
+            <div class="avatar">JM</div>
+            <div><strong>Jamie Miller</strong><span>Creator account</span></div>
+            <span class="more">•••</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content" id="studio">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>Studio</span><b>/</b><strong>New video</strong></div>
+          <div class="top-actions">
+            <button class="icon-button" aria-label="Notifications">♧<i></i></button>
+            <button class="help-button">? <span>Help center</span></button>
+          </div>
+        </header>
+
+        <div class="page-wrap">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">AI VIDEO WORKSPACE</p>
+              <h1>Turn a law into a <em>moment.</em></h1>
+              <p class="subtitle">Build a sharp, scroll-stopping lesson in under 5 minutes.</p>
+            </div>
+            <div class="save-state"><span class="saved-dot"></span> All changes saved</div>
+          </div>
+
+          <div class="workspace-grid">
+            <section class="creation-panel panel">
+              <div class="panel-title">
+                <div><span class="step-number">01</span><div><h2>Choose your law</h2><p>Start with an idea worth remembering.</p></div></div>
+                <span class="source-badge">THE DAILY LAWS <b>↗</b></span>
+              </div>
+              <div class="law-picker">
+                <div class="law-number" id="lawNumber">LAW 01</div>
+                <div class="law-copy">
+                  <h3 id="lawTitle">Master the art of timing</h3>
+                  <p id="lawSummary">The right action at the wrong moment still creates the wrong result.</p>
+                </div>
+                <button class="shuffle" id="shuffleLaw" aria-label="Choose another law">⌘</button>
+              </div>
+              <div class="law-tags" id="lawTags"><span>strategy</span><span>self-mastery</span><span>awareness</span></div>
+              <button class="library-link" id="browseLaws">Browse all 48 laws <span>→</span></button>
+
+              <div class="divider"></div>
+
+              <div class="panel-title compact">
+                <div><span class="step-number">02</span><div><h2>Shape your video</h2><p>Give your audience something they can use today.</p></div></div>
+              </div>
+              <div class="controls-grid">
+                <label>VIDEO FORMAT
+                  <select id="format">
+                    <option value="lesson">Quick lesson</option>
+                    <option value="story">Story time</option>
+                    <option value="list">3-point list</option>
+                  </select>
+                </label>
+                <label>ENERGY
+                  <select id="energy">
+                    <option value="direct">Direct &amp; sharp</option>
+                    <option value="calm">Calm &amp; reflective</option>
+                    <option value="bold">Bold &amp; provocative</option>
+                  </select>
+                </label>
+                <label class="full-width">AUDIENCE
+                  <div class="audience-input"><span>◉</span><input id="audience" value="Ambitious people building their next chapter" /></div>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div><strong>Include visual direction</strong><span>Suggest b-roll and on-screen text for each beat</span></div>
+                <button class="toggle on" id="visualToggle" aria-label="Toggle visual direction"><i></i></button>
+              </div>
+              <div class="toggle-row">
+                <div><strong>End with a reflection prompt</strong><span>Invite viewers to comment with their experience</span></div>
+                <button class="toggle on" id="promptToggle" aria-label="Toggle reflection prompt"><i></i></button>
+              </div>
+
+              <button class="generate-btn" id="generate"><span>✦</span> Generate video script <kbd>⌘ ↵</kbd></button>
+            </section>
+
+            <section class="preview-panel panel">
+              <div class="preview-head">
+                <div><p class="eyebrow">LIVE PREVIEW</p><h2>Your TikTok lesson</h2></div>
+                <div class="preview-actions"><button id="copyScript">Copy script</button><button id="downloadStoryboard">↓ Storyboard</button><a class="ai-link" id="generateAnimation" href="https://github.com/Wan-Video/Wan2.1" target="_blank" rel="noopener noreferrer">✦ Generate animation ↗</a></div>
+              </div>
+              <div class="phone-stage">
+                <div class="phone">
+                  <div class="phone-screen">
+                    <div class="phone-top"><span>9:41</span><span>● ● ▰</span></div>
+                    <div class="video-placeholder" id="videoCanvas"><div class="grain"></div><div class="scene-orb"></div><span class="play-glyph" id="playGlyph">▶</span><div class="video-caption">THE DAILY LAWS<br /><b>in 60 seconds</b></div><div class="phone-progress"><i id="phoneProgress"></i></div></div>
+                    <div class="video-overlay">
+                      <div class="overlay-badge" id="sceneBadge">LAW 01 / 48 · SCENE 01</div>
+                      <h3 id="previewHook">Your timing is<br /><em>your power.</em></h3>
+                      <p id="previewBody">A good decision made too early can be just as dangerous as a bad one.</p>
+                      <p class="animated-caption" id="animatedCaption">Your timing is your power.</p>
+                      <div class="caption-line"></div>
+                      <p class="handle">@dailylaws.studio <span>♬ original sound</span></p>
+                    </div>
+                    <div class="phone-sidebar"><span>♡<small>2.4k</small></span><span>◌<small>184</small></span><span>↗<small>share</small></span></div>
+                    <div class="phone-bottom"><span>⌂</span><strong>For You</strong><span>⊕</span><span>▱</span><span>◯</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="demo-controls">
+                <button class="play-control" id="playDemo" aria-label="Play demo">▶</button>
+                <div class="demo-track"><i id="demoProgress"></i></div>
+                <span class="demo-time" id="demoTime">00:00 / 00:52</span>
+                <button class="mini-control" id="restartDemo" aria-label="Restart demo">↺</button>
+                <button class="mini-control" id="muteDemo" aria-label="Mute demo">◖</button>
+              </div>
+              <div class="scene-strip" id="sceneStrip" aria-label="Video scenes"></div>
+              <div class="script-summary">
+                <div class="summary-row"><span class="summary-icon">◷</span><div><strong>Estimated length</strong><span id="duration">52 seconds · 130 words</span></div><b>●</b></div>
+                <div class="summary-row"><span class="summary-icon">◉</span><div><strong>Voiceover</strong><span>Warm, confident, gender-neutral</span></div><b>●</b></div>
+              </div>
+              <button class="edit-script" id="editScript">Open script editor <span>↗</span></button>
+            </section>
+          </div>
+
+          <section class="recent-section" id="drafts">
+            <div class="section-heading"><div><p class="eyebrow">KEEP CREATING</p><h2>Recent drafts</h2></div><button>View all drafts <span>→</span></button></div>
+            <div class="draft-grid">
+              <article class="draft-card"><div class="draft-thumb thumb-one"><span>LAW 24</span><b>Know when<br />to say less.</b></div><div class="draft-meta"><strong>The power of selective silence</strong><span>Edited 2 hours ago · 48 sec</span><button>•••</button></div></article>
+              <article class="draft-card"><div class="draft-thumb thumb-two"><span>LAW 17</span><b>Make them<br />miss you.</b></div><div class="draft-meta"><strong>Why absence creates value</strong><span>Edited yesterday · 55 sec</span><button>•••</button></div></article>
+              <article class="draft-card"><div class="draft-thumb thumb-three"><span>LAW 07</span><b>Let others<br />do the work.</b></div><div class="draft-meta"><strong>Turn effort into leverage</strong><span>Edited Sep 5 · 43 sec</span><button>•••</button></div></article>
+            </div>
+          </section>
+          <section class="page-view panel" data-page-view="library">
+            <div class="view-heading"><div><p class="eyebrow">REFERENCE</p><h2>Law library</h2><p>Browse the 48 principles and bring one into the studio.</p></div><button class="generate-btn small" id="libraryCreate">Create from selected law</button></div>
+            <div class="law-grid" id="lawGrid"></div>
+          </section>
+          <section class="page-view panel" data-page-view="drafts">
+            <div class="view-heading"><div><p class="eyebrow">WORK IN PROGRESS</p><h2>My drafts</h2><p>Return to an idea and keep shaping it.</p></div><button class="generate-btn small" id="draftCreate">New video</button></div>
+            <div class="draft-grid draft-grid-view"></div>
+          </section>
+          <section class="page-view panel" data-page-view="calendar">
+            <div class="view-heading"><div><p class="eyebrow">PUBLISHING</p><h2>Content calendar</h2><p>Plan your next lessons across the week.</p></div><button class="generate-btn small" id="calendarAdd">Add content</button></div>
+            <div class="calendar-grid"><div><b>MON 15</b><span>Timing is your power</span></div><div><b>WED 17</b><span>The power of selective silence</span></div><div><b>FRI 19</b><span>Turn effort into leverage</span></div></div>
+          </section>
+          <section class="page-view panel" data-page-view="analytics">
+            <div class="view-heading"><div><p class="eyebrow">PERFORMANCE</p><h2>Analytics</h2><p>Understand which lessons make people stop and think.</p></div></div>
+            <div class="analytics-grid"><div><strong>12.8k</strong><span>Total views</span></div><div><strong>8.4%</strong><span>Average engagement</span></div><div><strong>31%</strong><span>Completion rate</span></div></div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app.js"></script>
   </body>
-  <script type="module" src="/src/index.jsx"></script>
 </html>
