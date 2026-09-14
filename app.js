@@ -233,6 +233,9 @@ $("muteDemo").addEventListener("click", (event) => {
 });
 $("editScript").addEventListener("click", () => toast("Script editor opens after generation"));
 $("browseLaws").addEventListener("click", () => toast("Law library coming right up"));
+$("generateAnimation").addEventListener("click", () => {
+  toast("Opening Wan2.1, a free open-source video generator");
+});
 
 document.addEventListener("keydown", (event) => {
   if ((event.metaKey || event.ctrlKey) && event.key === "Enter") $("generate").click();
